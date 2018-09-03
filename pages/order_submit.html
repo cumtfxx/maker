@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>提交订单界面</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/iconfont.css">
+	<link rel="stylesheet" href="../css/tjdd.css">
+	<script src="../js/jquery.js"></script>
+	<script src="../js/main.js"></script>
+	<script src="../js/vue.min-2.5.16.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="root">
+		<!--	页头-->
+		<header>
+			<div class="logo d-none d-md-block">
+				<img src="../img/header.jpg" alt="" class="w-100">
+			</div>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: 4px solid #ff9966;border-radius: 5px">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-index" aria-controls="navbar-index" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<form class="form-inline my-1">
+					 <div class="btn-group">
+						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn my-1 my-sm-0 text-white" type="submit" style="background-color: #ff9966">Search</button>
+					 </div>
+				</form>
+				<div class="collapse navbar-collapse justify-content-end" id="navbar-index">
+				  <ul class="navbar-nav">
+				  	  <li class="nav-item mx-3">
+							<a class="nav-link" href="../index.html">首页</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" @click="loginDialogShow" style="cursor: pointer;">登录</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" href="register.html">注册</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" href="cart.html">购物车</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" href="chuangke_login.html">创客中心</a>
+					  </li>
+				  </ul>
+				</div>	
+			</nav>
+		</header>
+        
+        <!-- 提交订单 -->
+        <section id="yetou">
+        	<div class="querendingdan">
+        		<span>确认订单信息</span>
+        	</div>        	
+        </section>
+        
+        <section id="dingdanxiangqing">
+        <div class="biankuang">
+	        
+	        
+	        <div class="daohangtiao">
+		        	<div class="row">
+			            <div class="col-12 col-md-4 col-sm-12" >
+			            	<div class="dianpubaobei" ><strong>店铺宝贝</strong></div>
+			            	<div class="d-flex align-items-center" style="font-family: 微软雅黑"><img src="../img/beizi1.jpg" style="width:70px">猫咪杯子情侣动物水杯可爱创意陶瓷马克杯咖啡生日…</div>
+			            </div>
+			            <div class="col-12 col-md-3 col-sm-12">
+			            	<div class="shangpinxiangqing" ><strong>商品详情</strong></div>
+			            	<div style="text-align: center; font-family: 微软雅黑">4号柴犬400ml</div>
+			            </div>
+			            <div class="col-12 col-md-1 col-sm-12">
+			            	<div class="danjia"><strong>单价</strong></div>
+			            	<div style="text-align: center">¥20</div>
+			            </div>
+			            <div class="col-12 col-md 2 col-sm-12">
+			            	<div class="shuliang"><strong>数量</strong></div>
+			            	<div style="text-align: center">1</div>
+			            </div>
+			            <div class="col-12 col-md-2 col-sm-12">
+			            	<div class="xiaoji"><strong>小计</strong></div>
+			            	<div style="color:#ff3333;text-align: center"><strong>¥20</strong></div>
+			            </div>
+			        </div>
+		        </div>
+
+	        <div class="beizhu">
+	        	<div class="row">
+	                <div class="col-md-4">
+		                <br><br><br><div class="input-group mb-3">
+							<div class="input-group-prepend">
+							    <span class="input-group-text">给卖家留言：</span>
+							</div>
+							<input type="text" class="form-control" placeholder="选填">
+  						</div>
+  						<div>店铺名：诺拉家</div>
+	                </div>
+	                <div class="col-md-4"></div>
+	                <div class="col-md-4">
+	                    <br><br><span>运送方式：普通配送 快递 免邮</span><br><br>
+	                    <span>发货时间：卖家承诺订单在买家付款后, 24小时内发货</span><br><br>
+	                    <span>店铺合计(含运费):¥20</span><br><br>
+	                </div>
+	            </div>
+	        </div>
+        </div>
+
+        </section>
+        
+        <section id="tijiaokuang">
+	    <div class="row">
+	        <div class="col-md-4"></div>
+	        <div class="col-md-4">
+	            <div class="xinfeng">	
+		        	<div class="zongjia"><strong>¥20</strong></div><br><br><br><br>
+		        	<div class="dizhi"><center>寄送至：江苏省&nbsp;&nbsp;&nbsp;徐州市&nbsp;&nbsp;&nbsp;泉山区&nbsp;&nbsp;&nbsp;中国矿业大学南湖校区XXXX</center></div><br><br>
+		        	<div class="shouhuoren"><center>收货人：XXX&nbsp;&nbsp;&nbsp;151XXXXXXXX</center></div><br>
+	            </div>
+	        </div>
+	        <div class="col-md-4"></div>
+	    </div>
+	
+	    <div class="anniu">
+	    	<center><a href="payment.html" type="button" class="btn btn-danger btn-lg">提交订单</a></center>
+	    </div>
+
+	
+	
+        </section>
+
+        <!--	登录-->
+		<div class="login" v-if="isLoginDialog">
+			<div class="login-box">
+				<div class="login-close text-center px-2" @click="loginDialogHide">x</div>
+				<div class="login-title px-4 py-4">密码登录</div>
+				<form>
+				  <div class="form-group row px-4 py-0">
+					<label for="username" class="col-sm-2 col-form-label py-0 my-0"><div class="usernameIcon"><i class="iconfont ml-1">&#xe683;</i></div></label>
+					<div class="col-sm-10 ">
+					  <input type="text" class="form-control justify-content-center" id="username" placeholder="会员名/邮箱号/手机号">
+					</div>
+				  </div>
+				  <div class="form-group row px-4 py-2">
+					<label for="password" class="col-sm-2 col-form-label py-0 my-0"><div class="passwordIcon"><i class="iconfont ml-1">&#xe620;</i></div></label>
+					<div class="col-sm-10">
+					  <input type="password" class="form-control" id="password" placeholder="密码">
+					</div>
+				  </div>
+				  <div class="form-group row px-4">
+					<div class="col-sm-12">
+					  <button type="submit" class="btn btn-primary w-100">登录</button>
+					</div>
+				  </div>
+				</form>
+				<div class="forget px-4 py-2 float-left">忘记密码</div>
+				<div class="registe px-4 py-2 float-right">免费注册</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		new Vue({
+			el:'#root',
+			data:{
+				keys:[
+					{name:"特产"},
+					{name:"班服"},
+					{name:"球服"},
+					{name:"情侣装"},
+					{name:"兄弟装"},
+					{name:"自行车"},
+					{name:"键盘"},
+					{name:"鼠标"},
+					{name:"音箱"},
+					{name:"耳机"},
+					{name:"手机壳"},
+					{name:"钢化膜"},
+					{name:"美妆"},
+					{name:"个人护理"},
+					{name:"零食"},
+					{name:"体育用品"},
+					{name:"周边"},
+					{name:"鲜花园艺"},
+					{name:"宿舍用品"},
+					{name:"书籍"},
+					{name:"文具办公"},
+					{name:"DIY"},
+					{name:"学业辅导"},
+					
+				],
+				
+    
+				isLoginDialog:false
+			},
+			methods:{
+				loginDialogShow(){
+					this.isLoginDialog=true;
+				},
+				loginDialogHide(){
+					this.isLoginDialog=false;
+				}
+			}
+
+
+
+		})
+
+		
+
+		$('#beizi1').click(function() {
+		$(this).css('borderStyle','solid')
+		$('#beizi2').css('borderStyle','none')
+		$('#beizi3').css('borderStyle','none')
+		$('#beizi4').css('borderStyle','none')
+	});
+
+		$('#beizi2').click(function() {
+		$(this).css('borderStyle','none')
+		$('#beizi1').css('borderStyle','none')
+		$('#beizi3').css('borderStyle','none')
+		$('#beizi4').css('borderStyle','none')
+	});
+
+		$('#beizi3').click(function() {
+		$(this).css('borderStyle','none')
+		$('#beizi1').css('borderStyle','none')
+		$('#beizi2').css('borderStyle','none')
+		$('#beizi4').css('borderStyle','none')
+	});
+
+		$('#beizi4').click(function() {
+		$(this).css('borderStyle','none')
+		$('#beizi1').css('borderStyle','none')
+		$('#beizi2').css('borderStyle','none')
+		$('#beizi3').css('borderStyle','none')
+	});
+	
+	</script>
+</body>
+
+<footer style="height: 80px;line-height: 80px;background-color: #ccc" class="text-center">©电子商务系项目制第六组</footer>
+</html>

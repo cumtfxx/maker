@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/zfjm.css">
+	<script src='../js/bootstrap.min.js'></script>
+	<script src="../js/vue.min-2.5.16.js"></script>
+	<script src='../js/jquery.js'></script>
+	<title>支付界面</title>
+</head>
+<body>
+	<div class="bg">
+		<header>
+			<div class="logo d-none d-md-block">
+				<img src="../img/header.jpg" alt="" class="w-100">
+			</div>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: 4px solid #ff9966;border-radius: 5px">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-index" aria-controls="navbar-index" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<form class="form-inline my-1">
+					 <div class="btn-group">
+						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn my-1 my-sm-0 text-white" type="submit" style="background-color: #ff9966">Search</button>
+					 </div>
+				</form>
+				<div class="collapse navbar-collapse justify-content-end" id="navbar-index">
+				  <ul class="navbar-nav">
+				  	  <li class="nav-item mx-3">
+							<a class="nav-link" href="../index.html">首页</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" @click="loginDialogShow" style="cursor: pointer;">登录</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" href="register.html">注册</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" href="cart.html">购物车</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" href="chuangke_login.html">创客中心</a>
+					  </li>
+				  </ul>
+				</div>	
+			</nav>
+		</header>
+		<div class="container" id='root'>
+			<div class="row headermain">
+				<div class="col-12 zfzx d-none d-sm-block">支付中心</div>
+				<div class="col-12 zfzx-xs d-block d-sm-none">支付中心</div>
+			</div>
+			<div class="row main">
+				<div class="col-12">
+					<div class="row">
+						<div class="col-12 dd1"><span class="ddwb">订单提交成功，您的订单号为：</span><span class='ddh'>2569452177971</span></div>
+					</div>
+					<div class="row">
+						<div class="col-12"><hr></div>
+					</div>
+					<div class="row">
+						<div class="col-12 d-none d-md-block"><h2>支付方式 :</h2></div>
+						<div class="col-12 d-block d-md-none"><h4>支付方式 :</h4></div>
+					</div>
+					<div class="row zftp0">
+						<div class="col-12 col-sm-6 text-center"  style="margin-bottom: 10px;"><img id="zfb" src="../img/zfb.png" alt="支付宝支付" class="zftp" :class='img1' @click='imgz'></div>
+						<div class="col-12 col-sm-6  text-center" style="margin-bottom: 10px;"><img id="wx" src="../img/wx.png" alt="微信支付" class="zftp" :class='img2' @click='imgw'></div>
+					</div>
+					<div class="row">
+						<div class="col-12"><hr></div>
+					</div>
+					<div class="row">
+						<div class="col-7" style='color: #ff6600;margin-top: 10px;'><span>！请在</span><span id='time'>23小时59分钟59秒</span><span>以内支付完成，如未完成此订单将自动关闭。</span></div>
+						<div class="col-5 text-right" style="margin-top: 30px;"><span>应付金额：</span><span class="je">￥</span><span class="je">20</span></div>
+					</div>
+					<div class="row">
+						<div class="col-12 text-right" style="margin-top: 10px;">
+						<button class="btn btn-danger btn-md d-none d-sm-block" style='float: right' @click='zf'><b>立即支付</b></button>
+						<button class="btn btn-danger btn-sm d-block d-sm-none" style='float: right' @click='zf'><b>立即支付</b></button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12 text-right" style="margin-top: 13px;margin-bottom: 50px;"><a href="">我有疑问？</a></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 text-center" style="margin-top: 50px;margin-bottom: 0px;padding-bottom: 10px">©电子商务系项目制第六组</div>
+			<div class="finish" v-if='zfcg'>
+			<div class="finish-box" >
+			<img src="../img/sure.png" style='float: left;'>
+			<div class='zfcgwb'><b>支付成功，请耐心等待卖家发货。</b></div>
+			<div><a style='margin-right: 50px;margin-left: 10px;' href="../index.html">返回首页</a><a href="cart.html">继续购物</a></div>
+			</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	var time=24*3600-2;
+	var int1 = setInterval(clock,1000);
+	function clock(){
+		$('#time').text(Math.floor(time/3600)+'小时'+Math.floor((time%3600)/60)+'分钟'+time%60+'秒');
+		time--;
+	}
+	new Vue({
+		el:'#root',
+		data:{
+			zfcg:false,
+			img1:'imgsolid',
+			img2:'imgnone',
+		},
+		methods:{
+		zf(){
+		this.zfcg=true;
+		},
+		imgz(){
+		this.img1='imgsolid';
+		this.img2='imgnone';
+		},
+		imgw(){
+		this.img2='imgsolid';
+		this.img1='imgnone';
+		}
+		}
+	})
+	</script>
+</body>
+</html>

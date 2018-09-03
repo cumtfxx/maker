@@ -1,0 +1,93 @@
+@charset "UTF-8";
+.bg {
+  background-color: rgba(255, 204, 153, 0.3);
+  height: 100%； }
+
+.headermain {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto; }
+
+.zfzx {
+  font-size: 60px;
+  font-family: '隶书';
+  color: #FF9966;
+  margin-bottom: 10px; }
+
+.zfzx-xs {
+  font-size: 45px;
+  font-family: '隶书';
+  color: #FF9966;
+  margin-bottom: 10px; }
+.main {
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px rgba(188, 188, 188, 0.35);
+  border: none; }
+
+.ddh {
+  font-weight: bolder;
+  font-size: 17px; }
+
+.ddwb {
+  font-size: 15px; }
+
+hr {
+  color: #e4e4e4;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-width: 2px; }
+
+.zftp0 {
+  margin-top: 20px;
+  margin-bottom: 40px; }
+
+.zftp {
+  cursor: pointer;
+  width: 90%;
+  height: 100%;
+  margin-top: 10px;
+  border-radius: 10px; }
+
+.dd1 {
+  margin-top: 12px;
+  margin-bottom: 12px; }
+
+.je {
+  color: #ff0000;
+  font-size: 28px; }
+.finish{
+  vertical-align: middle;
+  background-color:rgba(176,176,176,0.4);
+  position: fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right: 0;
+}
+.finish-box{
+  width: 320px;
+  height: 75px;
+  background-color: #FFFFFF;
+  position: fixed;
+  margin:auto;
+  top:0;
+  left:0;
+  bottom:0;
+  right: 0;
+  border-radius: 3px;
+  padding-top: 0px;
+}
+.zfcgwb{
+	margin-bottom: 15px;
+	padding-top: 3px;
+}
+.imgsolid{
+  border: 4px solid rgba(255,0,0,0.6); 
+}
+.imgnone{
+  border: 4px none rgba(255,0,0,0.6); }
+}

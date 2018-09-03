@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>商铺展示</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/iconfont.css">
+	<script src="../js/jquery.js"></script>
+	<script src="../js/main.js"></script>
+	<script src="../js/vue.min-2.5.16.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/data.js"></script>
+	<script src="../js/paging.js"></script>
+	<script>
+		$(function(){
+			var imgWidth=$(".img-list div img").css("width");
+			$(".img-list div img").css("height","50px");
+			$(".img-list div .position-absolute").css("left","50px");
+			$(".img-list div .position-absolute img").css("height","250px")
+			$(".img-list div").on("mouseenter",function(){
+				$(this).children(".position-absolute").css("visibility","visible");
+			});
+			$(".img-list div").on("mouseleave",function(){
+				$(this).children(".position-absolute").css("visibility","hidden");
+			})
+		})
+	</script>
+</head>
+<body>
+	<div id="app">
+		<!--	页头-->
+		<header>
+			<div class="logo d-none d-md-block">
+				<img src="../img/header.jpg" alt="" class="w-100">
+			</div>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: 4px solid #ff9966;border-radius: 5px">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-index" aria-controls="navbar-index" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<form class="form-inline my-1">
+					 <div class="btn-group">
+						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn my-1 my-sm-0 text-white" type="submit" style="background-color: #ff9966">Search</button>
+					 </div>
+				</form>
+				<div class="collapse navbar-collapse justify-content-end" id="navbar-index">
+				  <ul class="navbar-nav">
+				  	  <li class="nav-item mx-3">
+							<a class="nav-link" href="../index.html">首页</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" @click="loginDialogShow" style="cursor: pointer;">登录</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" href="register.html">注册</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" href="cart.html">购物车</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" href="chuangke_login.html">创客中心</a>
+					  </li>
+				  </ul>
+				</div>	
+			</nav>
+		</header>
+		
+		<div class="container">
+			<div class="row my-4" id="resultBox">
+				
+			</div>	
+			<nav aria-label="Page navigation example my-5">
+			  <ul class="pagination justify-content-center" id="paging">
+				<li class="page-item prev disable"><a class="page-link" href="#">Previous</a></li>
+				<ul class="list d-flex"></ul>
+				<li class="page-item next"><a class="page-link" href="#">Next</a></li>
+			  </ul>
+			</nav>
+		</div>
+<!--
+		<div id="resultBox">
+
+		</div>
+-->
+		
+		<div class="login" v-if="isLoginDialog">
+			<div class="login-box">
+				<div class="login-close text-center px-2" @click="loginDialogHide">x</div>
+				<div class="login-title px-4 py-4">密码登录</div>
+				<form>
+				  <div class="form-group row px-4 py-0">
+					<label for="username" class="col-sm-2 col-form-label py-0 my-0"><div class="usernameIcon"><i class="iconfont ml-1">&#xe683;</i></div></label>
+					<div class="col-sm-10 ">
+					  <input type="text" class="form-control justify-content-center" id="username" placeholder="会员名/邮箱号/手机号">
+					</div>
+				  </div>
+				  <div class="form-group row px-4 py-2">
+					<label for="password" class="col-sm-2 col-form-label py-0 my-0"><div class="passwordIcon"><i class="iconfont ml-1">&#xe620;</i></div></label>
+					<div class="col-sm-10">
+					  <input type="password" class="form-control" id="password" placeholder="密码">
+					</div>
+				  </div>
+				  <div class="form-group row px-4">
+					<div class="col-sm-12">
+					  <button type="submit" class="btn btn-primary w-100">登录</button>
+					</div>
+				  </div>
+				</form>
+				<div class="forget px-4 py-2 float-left">忘记密码</div>
+				<div class="registe px-4 py-2 float-right">免费注册</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				isLoginDialog:false,
+				Store:[
+					{
+						name:"优品阁",
+						introduce:"这里是店铺介绍",
+						browseNum:"666",
+						imageUrl:"../img/store-1.jpg",
+						imgList:[
+							{
+								url:"../img/list-1.jpg",
+								info:{
+									goodsName:"猫咪杯子情侣动物水杯可爱创意陶瓷马克杯咖啡生日礼物带杯盖勺子 ",
+									goodsPrice:"20.00",
+									goodsDetail:""
+								}
+							},
+							{
+								url:"../img/list-2.jpg",
+								info:{
+									goodsName:"情侣网红花生鼠公仔生日送小礼物男女生创意儿童毛绒玩具六一礼物 ",
+									goodsPrice:"25.40",
+									goodsDetail:""
+								}
+							},
+							{
+								url:"../img/list-3.jpg",
+								info:{
+									goodsName:"车饰车载摆设车内用品汽车子饰品摆件小物件个性创意可爱小工艺品",
+									goodsPrice:"14.80",
+									goodsDetail:""
+								}
+							},
+							{
+								url:"../img/list-4.jpg",
+								info:{
+									goodsName:"OFF-WHITE 印花T恤",
+									goodsPrice:"48.80",
+									goodsDetail:""
+								}
+							},
+							{
+								url:"../img/list-5.jpg",
+								info:{
+									goodsName:"小马可爱树脂摆件设客厅居家装饰品北欧风格创意工艺品桌面礼物品",
+									goodsPrice:"27.30",
+									goodsDetail:""
+								}
+							}
+						],
+						isSmallHide:false
+					},
+					{
+						name:"矿大一号店",
+						introduce:"这里是店铺介绍",
+						browseNum:"666",
+						imageUrl:"../img/store-2.png",
+						imgList:[
+							{
+								url:"../img/list-1.jpg",
+								info:{
+									goodsName:"猫咪杯子情侣动物水杯可爱创意陶瓷马克杯咖啡生日礼物带杯盖勺子 ",
+									goodsPrice:"20.00",
+									goodsDetail:""
+								}
+							},
+							{
+								url:"../img/list-2.jpg",
+								info:{
+									goodsName:"情侣网红花生鼠公仔生日送小礼物男女生创意儿童毛绒玩具六一礼物 ",
+									goodsPrice:"25.40",
+									goodsDetail:""
+								}
+							},
+							{
+								url:"../img/list-3.jpg",
+								info:{
+									goodsName:"车饰车载摆设车内用品汽车子饰品摆件小物件个性创意可爱小工艺品",
+									goodsPrice:"14.80",
+									goodsDetail:""
+								}
+							},
+							{
+								url:"../img/list-4.jpg",
+								info:{
+									goodsName:"OFF-WHITE 印花T恤",
+									goodsPrice:"48.80",
+									goodsDetail:""
+								}
+							},
+							{
+								url:"../img/list-5.jpg",
+								info:{
+									goodsName:"小马可爱树脂摆件设客厅居家装饰品北欧风格创意工艺品桌面礼物品",
+									goodsPrice:"27.30",
+									goodsDetail:""
+								}
+							}
+						],
+						isSmallHide:false
+					},
+					{
+						name:"矿大一号店",
+						introduce:"这里是店铺介绍",
+						browseNum:"666",
+						imageUrl:"../img/store-2.png",
+						imgList:[
+							{
+								url:"../img/list-1.jpg",
+								info:{
+									goodsName:"猫咪杯子情侣动物水杯可爱创意陶瓷马克杯咖啡生日礼物带杯盖勺子 ",
+									goodsPrice:"20.00",
+									goodsDetail:""
+								}
+							},
+							{
+								url:"../img/list-2.jpg",
+								info:{
+									goodsName:"情侣网红花生鼠公仔生日送小礼物男女生创意儿童毛绒玩具六一礼物 ",
+									goodsPrice:"25.40",
+									goodsDetail:""
+								}
+							},
+							{
+								url:"../img/list-3.jpg",
+								info:{
+									goodsName:"车饰车载摆设车内用品汽车子饰品摆件小物件个性创意可爱小工艺品",
+									goodsPrice:"14.80",
+									goodsDetail:""
+								}
+							},
+							{
+								url:"../img/list-4.jpg",
+								info:{
+									goodsName:"OFF-WHITE 印花T恤",
+									goodsPrice:"48.80",
+									goodsDetail:""
+								}
+							},
+							{
+								url:"../img/list-5.jpg",
+								info:{
+									goodsName:"小马可爱树脂摆件设客厅居家装饰品北欧风格创意工艺品桌面礼物品",
+									goodsPrice:"27.30",
+									goodsDetail:""
+								}
+							}
+						],
+						isSmallHide:true
+					}
+				],
+			},
+			methods:{
+				loginDialogShow(){
+						this.isLoginDialog=true;
+					},
+					loginDialogHide(){
+						this.isLoginDialog=false;
+					}
+			}
+		})
+	</script>
+	
+</body>
+</html>

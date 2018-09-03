@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>商品界面</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/iconfont.css">
+	<link rel="stylesheet" href="../css/product.css">
+	<script src="../js/jquery.js"></script>
+	<script src="../js/vue.min-2.5.16.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="root">
+		<!--	页头-->
+		<header>
+			<div class="logo d-none d-md-block">
+				<img src="../img/header.jpg" alt="" class="w-100">
+			</div>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: 4px solid #ff9966;border-radius: 5px">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-index" aria-controls="navbar-index" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<form class="form-inline my-1">
+					 <div class="btn-group">
+						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn my-1 my-sm-0 text-white" type="submit" style="background-color: #ff9966">Search</button>
+					 </div>
+				</form>
+				<div class="collapse navbar-collapse justify-content-end" id="navbar-index">
+				  <ul class="navbar-nav">
+				  	  <li class="nav-item mx-3">
+							<a class="nav-link" href="../index.html">首页</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" @click="loginDialogShow" style="cursor: pointer;">登录</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" href="register.html">注册</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" href="cart.html">购物车</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" href="chuangke_login.html">创客中心</a>
+					  </li>
+				  </ul>
+				</div>	
+			</nav>
+		</header>
+		
+        <!-- 店铺导航 -->
+        <section id="dianpudaohang">
+        	<div class="dianputupian">
+        		<img src="../img/dianputupian.jpg" width="100%">
+        	</div>
+        </section>
+        
+        <!--购买界面-->
+        <div class="container" style="max-width: 1050px">
+        <section id="goumaijiemian">
+            <div class="row">
+            <div class="col-12 col-md-6 col-sm-12">
+            	<div class="shangpintupian">
+            	 	<img src="../img/list-1.jpg" width="450px" class="img-responsive center-block img-thumbnail img-fluid">
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-sm-12">
+            	<div class="shangpinmingcheng"> 
+            		<span>猫咪杯子情侣动物水杯可爱创意陶瓷马克杯咖啡生日礼物带杯盖勺子</span>
+            	</div>
+            	
+            	<div class="danjia" style="margin-top: 30px">
+            	<strong>单价：¥20</strong>
+            	</div>
+            	
+            	<div class="yansefenlei" style="margin-top: 40px">
+                <span>颜色分类：</span>
+            	<img id="beizi1" class="beizi1" src="../img/beizi1.jpg" width="20%">
+            	<img id="beizi2" class="beizi2" src="../img/beizi2.jpg" width="20%">
+            	<img id="beizi3" class="beizi3" src="../img/beizi3.jpg" width="20%">
+            	<img id="beizi4" class="beizi4" src="../img/beizi4.jpg" width="20%">
+            	</div>
+            	
+            	<div class="shuliang" style="margin-top: 10px">
+            		<br>
+            		<span>数量：</span>
+            		<list v-for="(List,idx) in List">
+                    <button class="btn btn-default" @click="cuts(idx)"><</button>
+                    <span>{{List.num}}</span>
+                    <button class="btn btn-default" @click="add(idx)">></button>
+                </div>
+            	
+            	<div class="goumaixuanxiang">
+            		<a href="receiver.html" class="btn btn-danger btn-lg">立即购买</a>
+            		<a href="cart.html" class="btn btn-warning btn-lg text-white">加入购物车</a>
+            	</div>
+            </div>
+            </div>
+        </section>
+    </div>
+
+
+        <!-- 商品详情 -->
+         <div class="container" style="max-width: 1050px">
+        <section id="shangpinxiangqing">
+        	<div class="xiangqing  text-center">
+        		<p><strong>商品详情</strong></p>
+        	</div>
+            <div class="wenzishuoming">
+            	<div class="row">
+	                <div class="col-12 col-md-4 col-sm-12">
+	                    <span>产地：中国大陆<br>流行元素：卡通<br>材质：陶瓷<br>颜色分类：1号哈士奇400ml…</span>
+	                </div>
+	                <div class="col-12 col-md-4 col-sm-12">
+	                    <span>容量：301ml~400ml<br>适用人群：大众<br>价格区间：15元~30元<br>风格：卡通</span>
+	                </div>
+	                <div class="col-12 col-md-4 col-sm-12">
+	                 	<span>是否手工：是<br>适用对象：成人<br>品牌：诺拉和皮埃诺<br>主图来源：自主实拍图</span>
+                	</div>
+            	</div>
+            <div class="xiangqingtupian">
+            	<img src="../img/xiangqing1.jpg" width="100%" class="img-responsive center-block">
+            	<img src="../img/xiangqing2.jpg" width="100%" class="img-responsive center-block">
+            	<img src="../img/xiangqing3.jpg" width="100%" class="img-responsive center-block">
+            	<img src="../img/xiangqing4.jpg" width="100%" class="img-responsive center-block">
+            	<img src="../img/xiangqing5.jpg" width="100%" class="img-responsive center-block">
+            </div>
+        </section>
+    </div>
+
+        <!--	登录-->
+		<div class="login" v-if="isLoginDialog">
+			<div class="login-box">
+				<div class="login-close text-center px-2" @click="loginDialogHide">x</div>
+				<div class="login-title px-4 py-4">密码登录</div>
+				<form>
+				  <div class="form-group row px-4 py-0">
+					<label for="username" class="col-sm-2 col-form-label py-0 my-0"><div class="usernameIcon"><i class="iconfont ml-1">&#xe683;</i></div></label>
+					<div class="col-sm-10 ">
+					  <input type="text" class="form-control justify-content-center" id="username" placeholder="会员名/邮箱号/手机号">
+					</div>
+				  </div>
+				  <div class="form-group row px-4 py-2">
+					<label for="password" class="col-sm-2 col-form-label py-0 my-0"><div class="passwordIcon"><i class="iconfont ml-1">&#xe620;</i></div></label>
+					<div class="col-sm-10">
+					  <input type="password" class="form-control" id="password" placeholder="密码">
+					</div>
+				  </div>
+				  <div class="form-group row px-4">
+					<div class="col-sm-12">
+					  <button type="submit" class="btn btn-primary w-100">登录</button>
+					</div>
+				  </div>
+				</form>
+				<div class="forget px-4 py-2 float-left">忘记密码</div>
+				<div class="registe px-4 py-2 float-right">免费注册</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		new Vue({
+			el:"#root",
+			data:{
+				List:[{
+                     num:1
+                     }],  
+			
+			    isLoginDialog:false 
+				
+			},
+
+			
+			methods:{
+				loginDialogShow(){
+					this.isLoginDialog=true;
+				},
+				loginDialogHide(){
+					this.isLoginDialog=false;
+				},
+				cuts:function(idx){
+                    if(this.List[idx].num<2) return
+                    this.List[idx].num--;
+                },
+                add:function(idx){
+                    this.List[idx].num++;    
+                }
+			}
+		})
+
+		$('#beizi1').click(function() {
+		$(this).css('borderStyle','solid')
+		$('#beizi2').css('borderStyle','none')
+		$('#beizi3').css('borderStyle','none')
+		$('#beizi4').css('borderStyle','none')
+	});
+
+		$('#beizi2').click(function() {
+		$(this).css('borderStyle','solid')
+		$('#beizi1').css('borderStyle','none')
+		$('#beizi3').css('borderStyle','none')
+		$('#beizi4').css('borderStyle','none')
+	});
+
+		$('#beizi3').click(function() {
+		$(this).css('borderStyle','solid')
+		$('#beizi1').css('borderStyle','none')
+		$('#beizi2').css('borderStyle','none')
+		$('#beizi4').css('borderStyle','none')
+	});
+
+		$('#beizi4').click(function() {
+		$(this).css('borderStyle','solid')
+		$('#beizi1').css('borderStyle','none')
+		$('#beizi2').css('borderStyle','none')
+		$('#beizi3').css('borderStyle','none')
+	});
+	
+	</script>
+</body>
+
+<footer style="height: 80px;line-height: 80px;background-color: #ccc" class="text-center">©电子商务系项目制第六组</footer>
+</html>

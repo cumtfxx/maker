@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>供货商界面</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/iconfont.css">
+	<script src="../js/jquery.js"></script>
+	<script src="../js/main.js"></script>
+	<script src="../js/vue.min-2.5.16.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<!--	页头-->
+		<header>
+			<div class="logo d-none d-md-block">
+				<img src="../img/header.jpg" alt="" class="w-100">
+			</div>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: 4px solid #ff9966;border-radius: 5px">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-index" aria-controls="navbar-index" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbar-index">
+				  <ul class="navbar-nav">
+				  	  <li class="nav-item mx-3">
+							<a class="nav-link" href="supplier.html">首页</a>
+					  </li>
+					  <li class="nav-item mx-3">
+							<a class="nav-link" href="supplier_order.html">订单查询</a>
+					  </li>
+				  </ul>
+				</div>	
+			</nav>
+		</header>
+		
+		<div class="container" style="max-width: 1000px">
+			<div class="d-flex align-items-center">
+				<div class="bold-24 py-3">我的产品</div>
+				<button class="btn btn-primary h-50 ml-5" @click="addProductShow">添加新商品</button>
+			</div>
+			<div class="row" v-for="item in product">
+				<div class="col-sm-4 col-12">
+					<div><img :src="item.imgUrl" alt="" class="w-100"></div>
+					<div class="py-3 font-10">{{item.name}}</div>
+					<div class="row mb-3">
+						<div class="col-6">价格：<span class="text-danger">{{item.price}}</span></div>
+						<div class="col-6">库存：<span class="text-danger">{{item.stock}}</span></div>
+					</div>
+				</div>
+				<div class="col-sm-8 col-12">
+					<div class="bold-24 bg-light py-3 pl-3">商品信息</div>
+					<div class="brand-name py-2 font-12">品牌名称：{{item.brandName}}</div>
+					<div class="parameter py-3 font-12" style="font-weight: bold">产品参数</div>
+					<div class="row">
+						<div class="col-md-4 ellipsis font-12 py-1" v-for='para in item.parameters'>{{para.parameterName}}: <span class="px-1">{{para.parameterValue}}</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="addProduct" v-if="isAddProductShow">
+			<form class="p-4 text-white">
+				<button type="button" class="close m-1" aria-label="Close" @click="addProductHide">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+				<div class="bold-24">添加新商品</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="productName" class="form-label">商品名：</label>
+					  <input type="text" class="form-control" id="productName" v-model="newProductName">
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="brandName" class="form-label">品牌名：</label>
+					  <input type="text" class="form-control" id="brandName" v-model="newProductBrandName">
+					</div>
+				</div>
+				<div class="input-group my-3">
+				  <div class="custom-file">
+					<input type="file" class="custom-file-input" id="imgFile" v-model="newProductImg">
+					<label class="custom-file-label" for="imgFile">上传图片</label>
+				  </div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="price" class="form-label">价格：</label>
+					  <input type="text" class="form-control" id="price" v-model="newProductPrice">
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="stock" class="form-label">库存：</label>
+					  <input type="text" class="form-control" id="stock" v-model="newProductStock">
+					</div>
+				</div>
+				<div class="form-group">
+				  <label class="form-label">参数：</label>
+				  <div class="row">
+				  	 <div class="col-6">
+				  	 	<input type="text" class="form-control" id="parameterName" placeholder="参数名" v-model="newProductPrameterName">
+				  	 </div>
+				  	 <div class="col-6">
+				  	 	<input type="text" class="form-control" id="parameterValue" placeholder="参数值" v-model="newProductPrameterValue">
+				  	 </div>
+				  </div>
+				</div>
+				<button class="btn btn-primary" @click="addProduct" type="button">添加</button>
+			</form>
+
+		</div>
+	</div>
+	
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				newProductName:"",
+				newProductBrandName:"",
+				newProductImg:"",
+				newProductPrice:"",
+				newProductStock:"",
+				newProductPrameterName:"",
+				newProductPrameterValue:"",
+				isAddProductShow:false,
+				product:[
+					{
+						name:'七夕进口猪饲料零食大礼包组合整箱超大混装网红小吃生日一箱休闲',
+						brandName:'EGO（马来西亚）',
+						price:66,
+						stock:2000,
+						imgUrl:'../img/product-1.png',
+						parameters:[
+							{
+								parameterName:'厂名',
+								parameterValue:'见外包装'
+							},
+							{
+								parameterName:'厂址',
+								parameterValue:'见外包装'
+							},
+							{
+								parameterName:'厂家联系方式',
+								parameterValue:'0457548478'
+							},
+							{
+								parameterName:'保质期',
+								parameterValue:'362天'
+							},
+							{
+								parameterName:'净含量',
+								parameterValue:'1000g'
+							},
+							{
+								parameterName:'包装方式',
+								parameterValue:'包装'
+							},
+							{
+								parameterName:'品牌',
+								parameterValue:'EGO（马来西亚）'
+							},
+							{
+								parameterName:'系列',
+								parameterValue:'K'
+							},
+							{
+								parameterName:'商品条形码',
+								parameterValue:'029173093121'
+							},
+							{
+								parameterName:'是否为有机食品',
+								parameterValue:'否'
+							},
+							{
+								parameterName:'是否含糖',
+								parameterValue:'含糖'
+							},
+							{
+								parameterName:'产地',
+								parameterValue:'马来西亚'
+							},
+							{
+								parameterName:'口味',
+								parameterValue:'赠送款（第二件1元专用） 猪饲料...'
+							},
+						]
+					},
+					{
+						name:'七夕进口猪饲料零食大礼包组合整箱超大混装网红小吃生日一箱休闲',
+						brandName:'EGO（马来西亚）',
+						price:66,
+						stock:2000,
+						imgUrl:'../img/product-2.png',
+						parameters:[
+							{
+								parameterName:'厂名',
+								parameterValue:'见外包装'
+							},
+							{
+								parameterName:'厂址',
+								parameterValue:'见外包装'
+							},
+							{
+								parameterName:'厂家联系方式',
+								parameterValue:'0457548478'
+							},
+							{
+								parameterName:'保质期',
+								parameterValue:'362天'
+							},
+							{
+								parameterName:'净含量',
+								parameterValue:'1000g'
+							},
+							{
+								parameterName:'包装方式',
+								parameterValue:'包装'
+							},
+							{
+								parameterName:'品牌',
+								parameterValue:'EGO（马来西亚）'
+							},
+							{
+								parameterName:'系列',
+								parameterValue:'K'
+							},
+							{
+								parameterName:'商品条形码',
+								parameterValue:'029173093121'
+							},
+							{
+								parameterName:'是否为有机食品',
+								parameterValue:'否'
+							},
+							{
+								parameterName:'是否含糖',
+								parameterValue:'含糖'
+							},
+							{
+								parameterName:'产地',
+								parameterValue:'马来西亚'
+							},
+							{
+								parameterName:'口味',
+								parameterValue:'赠送款（第二件1元专用） 猪饲料...'
+							}
+						]
+					},
+				]
+			},
+			methods:{
+				addProductHide(){
+					this.isAddProductShow=false
+				},
+				addProductShow(){
+					this.isAddProductShow=true
+				},
+				addProduct(){
+					if(this.newProductName!=""&&this.newProductBrandName!=""&&this.newProductPrice!=""&&this.newProductStock!=""){
+						this.product.push({
+								name:this.newProductName,
+								brandName:this.newProductBrandName,
+								price:this.newProductPrice,
+								stock:this.newProductStock,
+								imgUrl:'../img/product-1.png',
+								parameters:[
+									{
+										parameterName:'厂名',
+										parameterValue:'见外包装'
+									},
+									{
+										parameterName:'厂址',
+										parameterValue:'见外包装'
+									},
+									{
+										parameterName:'厂家联系方式',
+										parameterValue:'0457548478'
+									},
+									{
+										parameterName:'保质期',
+										parameterValue:'362天'
+									},
+									{
+										parameterName:'净含量',
+										parameterValue:'1000g'
+									},
+									{
+										parameterName:'包装方式',
+										parameterValue:'包装'
+									},
+									{
+										parameterName:'品牌',
+										parameterValue:'EGO（马来西亚）'
+									},
+									{
+										parameterName:'系列',
+										parameterValue:'K'
+									},
+									{
+										parameterName:'商品条形码',
+										parameterValue:'029173093121'
+									},
+									{
+										parameterName:'是否为有机食品',
+										parameterValue:'否'
+									},
+									{
+										parameterName:'是否含糖',
+										parameterValue:'含糖'
+									},
+									{
+										parameterName:'产地',
+										parameterValue:'马来西亚'
+									},
+									{
+										parameterName:'口味',
+										parameterValue:'赠送款（第二件1元专用） 猪饲料...'
+									}
+								]
+							});
+							this.isAddProductShow=false;
+							this.newProductName="";
+							this.newProductBrandName="";
+							this.newProductPrice="";
+							this.newProductStock="";
+							this.newProductPrameterName="";
+							this.newProductPrameterValue="";
+					}
+					else{
+						alert("请重新核查信息是否完整");
+					}
+				}
+			}
+		})
+	</script>
+</body>
+</html>

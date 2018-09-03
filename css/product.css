@@ -1,0 +1,148 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-decoration: none;
+}
+a{
+	color: black;
+}
+.logo-wraper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.logo-left{
+	border-top: 1px solid #333;
+	border-left:1px solid #333;
+	border-bottom: 1px solid #333;
+	width: 10px;
+	height: 100px;
+	box-sizing: border-box;
+}
+.logo-right{
+	border-top: 1px solid #333;
+	border-right:1px solid #333;
+	border-bottom: 1px solid #333;
+	width: 10px;
+	height: 100px;
+	box-sizing: border-box;
+}
+.logo-main{
+	margin: 0 50px;
+	font-family: '华文行楷';
+	font-size: 30px
+}
+.store-name{
+	font-size: 20px;
+	font-weight:900;
+	font-family: '微软雅黑';
+}
+.login{
+	width: 350px;
+	height: 320px;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	border: 1px solid black;
+}
+.login-box{
+	position: relative;
+}
+.login-close{
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 25px;
+	line-height: 25px;
+	cursor: pointer;
+}
+.login-title{
+	font-size: 25px;
+	font-family: '微软雅黑';
+}
+.usernameIcon{
+	background-color: #DDDDDD;
+	color: white;
+	width: 36px;
+	height: 36px;
+}
+.usernameIcon i{
+	font-size: 25px;
+	line-height: 36px;
+}
+.passwordIcon{
+	background-color: #DDDDDD;
+	color: white;
+	width: 36px;
+	height: 36px;
+}
+.passwordIcon i{
+	font-size: 27px;
+	line-height: 36px;
+}
+.flex{
+	display: flex;
+	justify-content: center;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*商品页面*/
+.shangpintupian{
+	margin-top: 30px;
+}
+.dianpudaohang{
+    background-color: #fbe6be;
+    line-height: 40px;
+}
+
+.shangpinmingcheng{
+	font-size: 20px;
+	margin-top: 30px;
+}
+
+.danjia{
+	background-color: #ffe5e5;
+	font-size: 40px;
+	color:#eb8e8e;
+}
+
+.goumaixuanxiang{
+	line-height: 150px;
+	color:white;
+}
+
+.xiangqing{
+	font-size: 30px;
+	background-color: #dadada;
+}
+
+.xiangqingtupian{
+	background-color: #eeeeee;
+	margin:0 auto;
+}
+
+.yansefenlei{
+	margin-top: 25px;
+}
+
+#beizi1 {
+  border: 4px solid rgba(255,0,0,0.6); }
+
+#beizi2 {
+  border: 4px none rgba(255,0,0,0.6); }
+
+#beizi3 {
+  border: 4px none rgba(255,0,0,0.6); }
+
+#beizi4 {
+  border: 4px none rgba(255,0,0,0.6); }

@@ -1,0 +1,19 @@
+/*
+* @Author: Administrator
+* @Date:   2018-08-18 11:22:41
+* @Last Modified by:   lenovo
+* @Last Modified time: 2018-08-31 22:06:09
+*/
+#shr-infomation{
+	background-color: rgba(255, 204, 153, 0.4);
+	padding:10px 40px;
+	margin-left: 0px
+}
+
+.container{
+	margin:20px;
+	
+}
+
+.bg-light{ 
+	border:4px solid orange; }

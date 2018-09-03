@@ -1,0 +1,162 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-decoration: none;
+}
+a{
+	color: black;
+}
+.logo-wraper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.logo-left{
+	border-top: 1px solid #333;
+	border-left:1px solid #333;
+	border-bottom: 1px solid #333;
+	width: 10px;
+	height: 100px;
+	box-sizing: border-box;
+}
+.logo-right{
+	border-top: 1px solid #333;
+	border-right:1px solid #333;
+	border-bottom: 1px solid #333;
+	width: 10px;
+	height: 100px;
+	box-sizing: border-box;
+}
+.logo-main{
+	margin: 0 50px;
+	font-family: '华文行楷';
+	font-size: 30px
+}
+.store-name{
+	font-size: 20px;
+	font-weight:900;
+	font-family: '微软雅黑';
+}
+.login{
+	width: 350px;
+	height: 320px;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	border: 1px solid black;
+}
+.login-box{
+	position: relative;
+}
+.login-close{
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 25px;
+	line-height: 25px;
+	cursor: pointer;
+}
+.login-title{
+	font-size: 25px;
+	font-family: '微软雅黑';
+}
+.usernameIcon{
+	background-color: #DDDDDD;
+	color: white;
+	width: 36px;
+	height: 36px;
+}
+.usernameIcon i{
+	font-size: 25px;
+	line-height: 36px;
+}
+.passwordIcon{
+	background-color: #DDDDDD;
+	color: white;
+	width: 36px;
+	height: 36px;
+}
+.passwordIcon i{
+	font-size: 27px;
+	line-height: 36px;
+}
+.flex{
+	display: flex;
+	justify-content: center;
+}
+
+/*提交订单界面*/
+.querendingdan{
+	font-family: '隶书';
+	color:#ff9966;
+	font-size: 50px;
+}
+
+.daohangtiao{
+	font-family: '黑体';
+	line-height: 40px;
+}
+
+.biankuang{
+	border: 2px solid #dddddd;
+	border-radius: 5px;
+}
+
+.xinfeng{
+	border:3px solid #ff3333;
+	margin-top: 30px;
+	height: 250px;
+	box-shadow: 0px 0px 1px 1px #ff3333;
+}
+
+.zongjia{
+	float: right;
+	font-size: 50px;
+	color:#ff3333;
+	font-family: '宋体';
+}
+
+.dianpubaobei{
+	border: 2px solid #dddddd; 
+	border-radius: 5px; 
+	background-color: #fff0e1; 
+	text-align: center; 
+	color:#ff9966;
+}
+
+.shangpinxiangqing{
+	border: 2px solid #dddddd; 
+	border-radius: 5px; 
+	background-color: #fff0e1; 
+	text-align: center; 
+	color:#ff9966;
+}
+
+.danjia{
+	border: 2px solid #dddddd; 
+	border-radius: 5px; 
+	background-color: #fff0e1; 
+	text-align: center; 
+	color:#ff9966;
+}
+
+.shuliang{
+	border: 2px solid #dddddd; 
+	border-radius: 5px; 
+	background-color: #fff0e1; 
+	text-align: center; 
+	color:#ff9966;
+}
+
+.xiaoji{
+	border: 2px solid #dddddd; 
+	border-radius: 5px; 
+	background-color: #fff0e1; 
+	text-align: center; 
+	color:#ff9966;
+}

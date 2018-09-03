@@ -1,0 +1,121 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-decoration: none;
+}
+a{
+	color: black;
+}
+.logo-wraper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.logo-left{
+	border-top: 1px solid #333;
+	border-left:1px solid #333;
+	border-bottom: 1px solid #333;
+	width: 10px;
+	height: 100px;
+	box-sizing: border-box;
+}
+.logo-right{
+	border-top: 1px solid #333;
+	border-right:1px solid #333;
+	border-bottom: 1px solid #333;
+	width: 10px;
+	height: 100px;
+	box-sizing: border-box;
+}
+.logo-main{
+	margin: 0 50px;
+	font-family: '华文行楷';
+	font-size: 30px
+}
+.store-name{
+	font-size: 20px;
+	font-weight:900;
+	font-family: '微软雅黑';
+}
+.login{
+	width: 350px;
+	height: 320px;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	border: 1px solid black;
+}
+.login-box{
+	position: relative;
+}
+.login-close{
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 25px;
+	line-height: 25px;
+	cursor: pointer;
+}
+.login-title{
+	font-size: 25px;
+	font-family: '微软雅黑';
+}
+.usernameIcon{
+	background-color: #DDDDDD;
+	color: white;
+	width: 36px;
+	height: 36px;
+}
+.usernameIcon i{
+	font-size: 25px;
+	line-height: 36px;
+}
+.passwordIcon{
+	background-color: #DDDDDD;
+	color: white;
+	width: 36px;
+	height: 36px;
+}
+.passwordIcon i{
+	font-size: 27px;
+	line-height: 36px;
+}
+.flex{
+	display: flex;
+	justify-content: center;
+}
+
+/*商铺产品展示*/
+.dianpumingcheng{
+	font-family: '华文彩云';
+	font-size:50px;
+	color:#ffcc66;
+	background-color:#ffffde;
+}
+
+.store-name {
+    font-family: '微软雅黑';
+    font-size: 15px;
+}
+
+.price{
+	font-size:30px;
+	color:red;
+}
+.browse{
+	color:red;
+}
+
+.card{
+	margin-top: 30px;
+}
+
+.goumaixuanxiang{
+	margin-left: 10px;
+	margin-bottom: 10px;
+}

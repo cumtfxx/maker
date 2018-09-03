@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>创客找回密码页面</title>
+    <style type="text/css">
+       *{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+}
+a{
+  color: black;
+}
+.logo-wraper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-left{
+  border-top: 1px solid #333;
+  border-left:1px solid #333;
+  border-bottom: 1px solid #333;
+  width: 10px;
+  height: 100px;
+  box-sizing: border-box;
+}
+.logo-right{
+  border-top: 1px solid #333;
+  border-right:1px solid #333;
+  border-bottom: 1px solid #333;
+  width: 10px;
+  height: 100px;
+  box-sizing: border-box;
+}
+.logo-main{
+  margin: 0 50px;
+  font-family: '华文行楷';
+  font-size: 30px
+}
+#tz{
+  font-family: Arial;
+  font-size: 24px;
+  font-weight: bold;
+}
+#bx{
+   font-family: Arial;
+  font-size: 16px;
+  font-weight: bold; 
+}
+h2{
+  font-family: Arial;
+  font-size: 16px;
+ margin-top: 20px;
+  text-align: center;
+}
+input{
+ 
+  margin: 10px;
+  font-size: 13px;
+  
+  font-family: Arial;
+}
+#yzm{ 
+  width: 60px;
+
+}
+.yzm{
+  margin-right: 65px;
+}
+h3{
+  font-family:  Arial;
+  font-size:8px;
+  position: relative;
+  left: 150px;
+}
+img{
+  width: 60px;
+  height: 40px;
+  position: relative;
+  left: 20px;
+}
+#xyb{
+  width: 205px;
+  height: 45px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Arial;
+  background-color: #FF9966;
+  font-size: 20px;
+  margin-top: 10px;
+}
+.dlm{
+  margin-top: 23px;
+}
+#sj{
+  margin-top: -15px;
+}
+#lj{
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFFFFF; 
+}
+</style>
+  </head>
+  <body>
+    <header>
+      <div class="logo d-none d-md-block">
+        <img src="../img/header.jpg" alt="" class="w-100">
+      </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: 4px solid #ff9966;border-radius: 5px">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-index" aria-controls="navbar-index" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <form class="form-inline my-1">
+           <div class="btn-group">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn my-1 my-sm-0 text-white" type="submit" style="background-color: #ff9966">Search</button>
+           </div>
+        </form>
+        <div class="collapse navbar-collapse justify-content-end" id="navbar-index">
+          <ul class="navbar-nav">
+              <li class="nav-item mx-3">
+              <a class="nav-link" href="../index.html">首页</a>
+            </li>
+            <li class="nav-item mx-3">
+              <a class="nav-link" @click="loginDialogShow" style="cursor: pointer;">登录</a>
+            </li>
+            <li class="nav-item mx-3">
+              <a class="nav-link" href="register.html">注册</a>
+            </li>
+            <li class="nav-item mx-3">
+              <a class="nav-link" href="cart.html">购物车</a>
+            </li>
+            <li class="nav-item mx-3">
+              <a class="nav-link" href="chuangke_login.html">创客中心</a>
+            </li>
+          </ul>
+        </div>  
+      </nav>
+    </header>
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="border border-black p-3 px-4">
+           <div  class="col-md-12 col-sm-12 col-xs-12" >
+              <h1  id="tz" class="d-none d-md-block">找回密码</h1>
+              <h2 id="bx" class="d-block d-md-none">找回密码</h2>              
+           </div>
+            <h2 class="dlm">登录名:<input type="text" name="username" placeholder="登录账号" autofocus=""></h2>
+           <h2>手机号:<input type="text" name="sjh" placeholder="手机号/电子邮箱" maxlength="11"></h2>
+           <h3 id="sj">手机号/电子邮箱均可</h3>
+           <h2 class="yzm">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;验证码:<input id="yzm" type="text" name="yzm"> <img src="../img/dxyzm.png" class="img-fluid" alt="验证码图片"></h2>
+           <h3>填写短信/电子邮箱收到的验证码</h3>
+           <h2><button id="xyb" type="button" class="btn btn-primary"><a id="lj" href="chuangke_reset.html">下一步</a></button></h2>
+        </div>     
+      </div>
+    </div>               
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
