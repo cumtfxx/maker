@@ -363,7 +363,7 @@
 			setlist: function(){
 			qwest.setDefaultOptions({ cache: true });
 			qwest.get(
-			"http://fdk.coding.me/cklm/gwcjson.json"  
+			"https://fdk.coding.me/cklm/gwcjson.json"  
 			).then(
 			function(xhr, msg) {
 			console.log(msg.gwcList);
